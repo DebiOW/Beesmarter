@@ -1,5 +1,6 @@
 package com.example.debre.beesmarterbeesgame;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
 import com.example.debre.beesmarterbeesgame.ControlsFolder.Joystick;
@@ -9,14 +10,13 @@ import com.example.debre.beesmarterbeesgame.ControlsFolder.Joystick;
  */
 
 public class Bee {
-    Joystick joystick;
     public float x = 50,y = 50,newX,newY;
-    GamePanel gamePanel;
+    Bitmap bmp;
 
 
 
-
-    public Bee(float x, float y){
+    public Bee(float x, float y, Bitmap bmp){
+        this.bmp=bmp;
         this.x = x;
         this.y = y;
 
@@ -28,18 +28,12 @@ public class Bee {
 
 
     }
-    public void update(){
-        newX = x - joystick.outputX;
-        newY = y - joystick.outputY;
 
-
-
-    }
 
 
 
     public void render(Canvas canvas){
-        canvas.drawBitmap(gamePanel.bee, newX, newY,null);
+        canvas.drawBitmap(bmp, x, y,null);
 
 
 

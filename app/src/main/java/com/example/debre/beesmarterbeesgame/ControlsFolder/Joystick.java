@@ -30,18 +30,19 @@ public class Joystick {
     public void update(){
         x-=little.getWidth()/2;
         y-=little.getHeight()/2;
-        if(nyx<0){
+        if(nyx-little.getWidth()/2<0){
             nyx=lx+big.getWidth()/2;
+
         }
-        if(nyy<0){
+        if(nyy-little.getWidth()/2<0){
             nyy=ly+big.getWidth()/2;
         }
-        if (x<width-10-big.getWidth()&&x>0){
+        if (x<width-10-big.getWidth()&&x+little.getWidth()/2+1>0){
             x=width-10-big.getWidth();
         }
 
 
-        if (y<height-10-big.getHeight()&&y>0){
+        if (y<height-10-big.getHeight()&&y+little.getHeight()/2+1>0){
             y=height-10-big.getHeight();
         }
 

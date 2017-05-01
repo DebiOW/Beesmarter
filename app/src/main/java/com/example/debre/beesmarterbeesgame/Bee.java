@@ -10,7 +10,7 @@ import com.example.debre.beesmarterbeesgame.ControlsFolder.Joystick;
  */
 
 public class Bee {
-    public float x = 50,y = 50,newX,newY;
+    public float x = 50,y = 50;
     Bitmap bmp;
 
 

@@ -29,7 +29,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap flower1;
     Bitmap flower2;
     Bitmap flower3;
+    Bitmap frog;
     Bee meh;
+    Frog beka;
     Flower flower;
     List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();
@@ -46,9 +48,11 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         myBmp2=BitmapFactory.decodeResource(context.getResources(),R.drawable.littlecircle);
         myBmp3=BitmapFactory.decodeResource(context.getResources(),R.drawable.pause);
         bee = BitmapFactory.decodeResource(context.getResources(),R.drawable.bee);
+        frog = BitmapFactory.decodeResource(context.getResources(),R.drawable.frog);
        flower1 = BitmapFactory.decodeResource(context.getResources(),R.drawable.flower1);
       flower2 = BitmapFactory.decodeResource(context.getResources(),R.drawable.flower2);
         flower3= BitmapFactory.decodeResource(context.getResources(),R.drawable.flower3);
+
 
 
 
@@ -63,6 +67,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         myBmp2=Bitmap.createScaledBitmap(myBmp2,width/9,width/9,true);
         controls=new Controls(myBmp1,myBmp2,myBmp3,width,height);
         meh=new Bee(width/2,height/2,bee,width,height);
+        beka = new Frog((width/2)+3, (height/2)+3, frog, width,height);
         screenHeight=height;
         screenWidth=width;
 
@@ -127,6 +132,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         if(meh.x-controls.jx<screenWidth/2&&map.x==0
                 || meh.x-controls.jx>screenWidth/2&&map.x+myBmp.getWidth()==screenWidth) {
             meh.x = meh.x - controls.jx;
+            beka.x = meh.x - 300;
         }else {
             map.x += controls.jx;
             for(int i=0;i<flowers.size();i++){
@@ -140,6 +146,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         if(meh.y-controls.jy<screenHeight/2&&map.y==0
                 ||meh.y-controls.jy>screenHeight/2&&map.y+myBmp.getHeight()==screenHeight) {
             meh.y = meh.y - controls.jy;
+            beka.y = meh.y - 300;
         }else {
             map.y += controls.jy;
             for(int i=0;i<flowers.size();i++){

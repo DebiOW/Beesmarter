@@ -62,6 +62,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         meh=new Bee(width/2,height/2,bee,width,height);
         screenHeight=height;
         screenWidth=width;
+        flower = new Flower(rnd.nextInt(height),rnd.nextInt(width));
 
     }
 

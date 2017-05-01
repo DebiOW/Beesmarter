@@ -17,15 +17,9 @@ public class Flower {
     Random rnd = new Random();
 
 
-    public Flower(float x, float y,int width, int height){
+    public Flower(float x, float y){
         this.x = x;
         this.y = y;
-        this.height = height;
-        this.width = width;
-        this.x = 200;
-        this.y = 200;
-
-
 
     }
 

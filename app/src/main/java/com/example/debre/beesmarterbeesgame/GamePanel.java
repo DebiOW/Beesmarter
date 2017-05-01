@@ -47,7 +47,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
       flower2 = BitmapFactory.decodeResource(context.getResources(),R.drawable.flower2);
         flower3= BitmapFactory.decodeResource(context.getResources(),R.drawable.flower3);
 
-        flower = new Flower(float x, float y, int height, int width);
+
 
 
 
@@ -62,6 +62,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         meh=new Bee(width/2,height/2,bee,width,height);
         screenHeight=height;
         screenWidth=width;
+        flower = new Flower(rnd.nextInt(height),rnd.nextInt(width));
 
     }
 

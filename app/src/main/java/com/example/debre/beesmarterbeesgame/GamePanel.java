@@ -20,6 +20,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap myBmp1;
     Bitmap myBmp2;
     Bitmap myBmp3;
+    Bitmap bee;
+    Bee meh;
     int r;
     int a;
     public float nyX,nyY;
@@ -32,6 +34,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         myBmp1=BitmapFactory.decodeResource(context.getResources(),R.drawable.bigfixcircle);
         myBmp2=BitmapFactory.decodeResource(context.getResources(),R.drawable.littlecircle);
         myBmp3=BitmapFactory.decodeResource(context.getResources(),R.drawable.pause);
+        bee = BitmapFactory.decodeResource(context.getResources(),R.drawable.bee);
 
     }
 
@@ -85,6 +88,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update(){
+        meh.update();
+
         controls.update();
         if (r==1){
             controls.x=(int)nyX;

@@ -16,6 +16,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     private MainThread thread;
     private Map map;
     private Controls controls;
+    int screenWidth, screenHeight;
     Bitmap myBmp;
     Bitmap myBmp1;
     Bitmap myBmp2;
@@ -45,7 +46,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         myBmp1=Bitmap.createScaledBitmap(myBmp1,width/5,width/5,true);
         myBmp2=Bitmap.createScaledBitmap(myBmp2,width/9,width/9,true);
         controls=new Controls(myBmp1,myBmp2,myBmp3,width,height);
-        meh=new Bee(width/2,height/2,bee);
+        meh=new Bee(width/2,height/2,bee,width,height);
+        screenHeight=height;
+        screenWidth=width;
+
     }
 
 
@@ -100,10 +104,27 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             controls.x=-1;
             controls.y=-1;
         }
-        map.x+=controls.jx;
-        map.y+=controls.jy;
-        meh.x = meh.x - controls.jx;
-        meh.y = meh.y - controls.jy;
+
+        if(meh.x-controls.jx<screenWidth/2&&map.x==0
+                || meh.x-controls.jx>screenWidth/2&&map.x+myBmp.getWidth()==screenWidth) {
+            meh.x = meh.x - controls.jx;
+        }else {
+            map.x += controls.jx;
+        }
+
+
+
+
+        if(meh.y-controls.jy<screenHeight/2&&map.y==0
+                ||meh.y-controls.jy>screenHeight/2&&map.y+myBmp.getHeight()==screenHeight) {
+            meh.y = meh.y - controls.jy;
+        }else {
+            map.y += controls.jy;
+        }
+
+
+
+
     }
     public void draw(Canvas canvas){
         super.draw(canvas);

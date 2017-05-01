@@ -161,7 +161,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
                 flowers.get(i).y+=controls.jy;
             }
         }
-        Log.v("asd", Integer.toString(score));
+
 
 
 

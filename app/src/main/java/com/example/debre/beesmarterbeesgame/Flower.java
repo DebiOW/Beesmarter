@@ -1,5 +1,6 @@
 package com.example.debre.beesmarterbeesgame;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.Log;
 
@@ -11,15 +12,13 @@ import java.util.Random;
 
 public class Flower {
     float x ,y;
-    int width, height;
-    GamePanel gamePanel;
-    Controls controls;
-    Random rnd = new Random();
+    Bitmap bmp;
 
 
-    public Flower(float x, float y){
+    public Flower(float x, float y,Bitmap bmp){
         this.x = x;
         this.y = y;
+        this.bmp=bmp;
 
     }
 
@@ -35,16 +34,8 @@ public class Flower {
 
     public void render(Canvas canvas){
 
-      /*  int r = rnd.nextInt(4);
-        if(r == 1){
-            canvas.drawBitmap(gamePanel.flower1,x,y,null);
-        } else if(r == 2){
-            canvas.drawBitmap(gamePanel.flower2,x,y,null);
-        } else {
-            canvas.drawBitmap(gamePanel.flower3,x,y,null);
-        }
-*/
-        canvas.drawBitmap(gamePanel.flower1,x,y,null);
+
+        canvas.drawBitmap(bmp,x,y,null);
         Log.v("asd", Float.toString(x));
 
 

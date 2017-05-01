@@ -88,7 +88,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update(){
-        meh.update();
 
         controls.update();
         if (r==1){
@@ -101,10 +100,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         }
         map.x+=controls.jx;
         map.y+=controls.jy;
+        meh.newX = meh.x - controls.jx;
+        meh.newY = meh.y - controls.jy;
     }
     public void draw(Canvas canvas){
         super.draw(canvas);
         map.draw(canvas);
+        meh.render(canvas);
         controls.draw(canvas);
     }
 }

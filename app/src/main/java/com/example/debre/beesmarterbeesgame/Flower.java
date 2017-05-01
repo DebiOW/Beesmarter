@@ -11,7 +11,7 @@ import java.util.Random;
  */
 
 public class Flower {
-    float x ,y;
+    float x ,y, r;
     Bitmap bmp;
 
 
@@ -21,6 +21,8 @@ public class Flower {
         this.bmp=bmp;
 
     }
+
+
 
     public void update(){
 

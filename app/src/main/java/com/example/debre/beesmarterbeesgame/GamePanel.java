@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -37,6 +38,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Random rnd = new Random();
     int r;
     int a;
+    int score = 0;
     public float nyX,nyY;
     public GamePanel (Context context){
         super(context);
@@ -152,6 +154,16 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             for(int i=0;i<flowers.size();i++){
                 flowers.get(i).y+=controls.jy;
             }
+        }
+        Log.v("asd", Integer.toString(score));
+
+
+
+    }
+    public void collision(){
+        if(meh.x + 10 == flower.x){
+            score += 1;
+
         }
 
 

@@ -143,6 +143,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             beka.x = meh.x - 300;
         }else {
             map.x += controls.jx;
+
             for(int i=0;i<flowers.size();i++){
                 flowers.get(i).x+=controls.jx;
             }

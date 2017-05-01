@@ -120,7 +120,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     public void update(){
         controls.update();
         if (flowers.size()<10) {
-            flowers.add(flower = new Flower(rnd.nextInt(myBmp.getWidth()), rnd.nextInt(myBmp.getHeight()), flower1));
+            if(rnd.nextInt(4) == 1){
+                flowers.add(flower = new Flower(rnd.nextInt(myBmp.getWidth()), rnd.nextInt(myBmp.getHeight()), flower1));
+            } else if(rnd.nextInt(4) == 2){
+                flowers.add(flower = new Flower(rnd.nextInt(myBmp.getWidth()), rnd.nextInt(myBmp.getHeight()), flower2));
+            } else {
+                flowers.add(flower = new Flower(rnd.nextInt(myBmp.getWidth()), rnd.nextInt(myBmp.getHeight()), flower3));
+            }
         }
         if (r==1){
             controls.x=(int)nyX;

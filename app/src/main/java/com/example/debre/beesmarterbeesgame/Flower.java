@@ -22,14 +22,6 @@ public class Flower {
 
     }
 
-    public void update(){
-
-
-
-
-
-    }
-
     public void render(Canvas canvas){
 
 

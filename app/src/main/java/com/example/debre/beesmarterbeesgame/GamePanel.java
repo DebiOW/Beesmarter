@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -29,6 +31,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap flower3;
     Bee meh;
     Flower flower;
+    List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();
     int r;
     int a;
@@ -109,7 +112,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
     public void update(){
 
-        flower = new Flower(rnd.nextInt(screenWidth),rnd.nextInt(screenHeight),flower1);
+        flowers.add(flower = new Flower(rnd.nextInt(screenWidth),rnd.nextInt(screenHeight),flower1));
         controls.update();
         if (r==1){
             controls.x=(int)nyX;
@@ -125,6 +128,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             meh.x = meh.x - controls.jx;
         }else {
             map.x += controls.jx;
+            for(int i=0;i<flowers.size();i++){
+                flowers.get(i).x+=controls.jx;
+            }
         }
 
 
@@ -135,6 +141,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             meh.y = meh.y - controls.jy;
         }else {
             map.y += controls.jy;
+            for(int i=0;i<flowers.size();i++){
+                flowers.get(i).y+=controls.jy;
+            }
         }
 
        flower.x = rnd.nextInt(screenWidth);
@@ -145,9 +154,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     }
     public void draw(Canvas canvas){
         super.draw(canvas);
+        for(int i=0;i<flowers.size();i++){
+            flowers.get(i).render(canvas);
+        }
         map.draw(canvas);
         meh.render(canvas);
         controls.draw(canvas);
-        flower.render(canvas);
+//        flower.render(canvas);
+
     }
 }

@@ -22,8 +22,6 @@ public class Flower {
 
     }
 
-
-
     public void update(){
 
 

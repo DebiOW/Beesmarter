@@ -6,6 +6,8 @@ import android.graphics.Paint;
 
 import com.example.debre.beesmarterbeesgame.ControlsFolder.Joystick;
 
+import java.util.Random;
+
 /**
  * Összeszegelte debre  4/30/2017-án.
  */
@@ -14,6 +16,8 @@ public class Controls {
     Bitmap cb1;
     Bitmap cb2;
     Bitmap stop;
+    Random rnd = new Random();
+    Flower flower;
     int width,height;
     int x,y;
     int jx,jy;
@@ -27,6 +31,7 @@ public class Controls {
         this.width=width;
         this.height=height;
         joystick= new Joystick(cb1,cb2,width,height);
+
     }
     public void update(){
         joystick.x=x;

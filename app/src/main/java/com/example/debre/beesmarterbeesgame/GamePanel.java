@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import java.util.Random;
+
 /**
  * Összeszegelte debre  4/30/2017-án.
  */
@@ -22,7 +24,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap myBmp2;
     Bitmap myBmp3;
     Bitmap bee;
+    Bitmap flower1;
+    Bitmap flower2;
+    Bitmap flower3;
     Bee meh;
+    Flower flower;
+    Random rnd = new Random();
     int r;
     int a;
     public float nyX,nyY;
@@ -36,6 +43,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         myBmp2=BitmapFactory.decodeResource(context.getResources(),R.drawable.littlecircle);
         myBmp3=BitmapFactory.decodeResource(context.getResources(),R.drawable.pause);
         bee = BitmapFactory.decodeResource(context.getResources(),R.drawable.bee);
+       flower1 = BitmapFactory.decodeResource(context.getResources(),R.drawable.flower1);
+      flower2 = BitmapFactory.decodeResource(context.getResources(),R.drawable.flower2);
+        flower3= BitmapFactory.decodeResource(context.getResources(),R.drawable.flower3);
+
+        flower = new Flower(float x, float y, int height, int width);
+
 
 
     }
@@ -94,6 +107,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update(){
+        int height, width;
+        height = screenHeight;
+        width = screenWidth;
 
         controls.update();
         if (r==1){
@@ -122,6 +138,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             map.y += controls.jy;
         }
 
+       flower.x = rnd.nextInt(2000);
+       flower.y = rnd.nextInt(2000);
 
 
 
@@ -131,5 +149,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         map.draw(canvas);
         meh.render(canvas);
         controls.draw(canvas);
+        flower.render(canvas);
     }
 }

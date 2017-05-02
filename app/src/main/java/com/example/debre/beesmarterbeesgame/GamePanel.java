@@ -1,6 +1,7 @@
 package com.example.debre.beesmarterbeesgame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -8,6 +9,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import com.example.debre.beesmarterbeesgame.StartScreen.StartScreenAct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap frog;
     Bee meh;
     Frog beka;
+    MainActivity mainActivity;
+
     List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();
     int r;
@@ -163,16 +168,22 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
         for(int i=0;i<flowers.size();i++){
             Flower flowerx=flowers.get(i);
-        if(meh.x + bee.getWidth() >= flowerx.x&&meh.x<= flowerx.x+flower1.getWidth()&&meh.y + bee.getHeight() >= flowerx.y&&meh.y<= flowerx.y+flower1.getHeight()) {
+           if(meh.x + bee.getWidth() >= flowerx.x&&meh.x<= flowerx.x+flower1.getWidth()&&meh.y + bee.getHeight() >= flowerx.y&&meh.y<= flowerx.y+flower1.getHeight()) {
             score += 1;
             flowers.remove(i);
 
+
+
+
+           }
         }
-        }
+
+
             for(int i=0;i<flowers.size();i++) {
                 Flower flowerx = flowers.get(i);
                 if (flowerx.x>map.x+myBmp.getWidth()||flowerx.y>map.y+myBmp.getHeight()||flowerx.x+flowerx.bmp.getWidth()<map.x||flowerx.y+flowerx.bmp.getHeight()<map.y) {
                     flowers.remove(i);
+                    mainActivity.die();
 
 
                 }

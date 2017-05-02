@@ -38,7 +38,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap frog;
     Bee meh;
     Frog beka;
-    MainActivity mainActivity;
 
     List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();

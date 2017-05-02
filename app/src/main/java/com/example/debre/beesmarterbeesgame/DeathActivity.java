@@ -46,21 +46,21 @@ public class DeathActivity extends AppCompatActivity {
         textView.setTextSize(40);
 
 
-        SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
-//        int highScore = settings.getInt("HIGH_SCORE", 0);
-//        if (gamePanel.score > highScore) {
-//            textView2.setText(String.valueOf(gamePanel.score));
-//            textView.setText(String.valueOf(gamePanel.score));
-//
-//            SharedPreferences.Editor editor = settings.edit();
-//            editor.putInt("HIGH_SCORE", gamePanel.score);
-//            editor.commit();
-//
-//        } else {
-//            textView2.setText(String.valueOf(highScore));
-//            textView.setText(String.valueOf(gamePanel.score));
-//
-//        }
+      /*   SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
+       int highScore = settings.getInt("HIGH_SCORE", 0);
+       if (gamePanel.score > highScore) {
+         textView2.setText(String.valueOf(gamePanel.score));
+          textView.setText(String.valueOf(gamePanel.score));
+          SharedPreferences.Editor editor = settings.edit();
+          editor.putInt("HIGH_SCORE", gamePanel.score);
+        editor.commit();
+
+       } else {
+           textView2.setText(String.valueOf(highScore));
+            textView.setText(String.valueOf(gamePanel.score));
+
+        }
+        */
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

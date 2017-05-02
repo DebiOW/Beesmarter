@@ -1,5 +1,6 @@
 package com.example.debre.beesmarterbeesgame;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +12,22 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static MainActivity mainActivity;
+    Intent i;
+    Context context;
+
+    public MainActivity(){
+        mainActivity=this;
+
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        i = new Intent(MainActivity.this, DeathActivity.class);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -30,13 +44,17 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().getDecorView().setSystemUiVisibility(mUIFlag);
 
-    }
 
-    public void die(){
-        Intent i = new Intent(MainActivity.this, DeathActivity.class);
+
+    }
+    public void intent(){
         startActivity(i);
-        Log.d("aaa","aaa");
 
 
     }
+
+
+
+
+
 }

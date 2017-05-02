@@ -1,6 +1,7 @@
 package com.example.debre.beesmarterbeesgame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -19,10 +20,12 @@ import java.util.Random;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     private MainThread thread;
+    private MainActivity mainActivity;
     private Map map;
     private Controls controls;
     int screenWidth, screenHeight;
     Bitmap myBmp;
+    public int death;
     Bitmap myBmp1;
     Bitmap myBmp2;
     Bitmap myBmp3;
@@ -189,7 +192,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
                 flowers.get(i).y+=controls.jy;
             }
         }
+        if(meh.x + bee.getWidth() >=beka.x&& meh.x<=beka.x+frog.getWidth()&&meh.y + bee.getHeight() >= beka.y&&meh.y<= beka.y+frog.getHeight()) {
 
+        }
 
 
 

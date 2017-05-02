@@ -24,9 +24,9 @@
         <activity
             android:name=".StartScreen.StartScreenAct"
             android:screenOrientation="landscape" />
-        <activity android:name=".DeathActivity"
-            android:screenOrientation="landscape" >
-        </activity>
+        <activity
+            android:name=".DeathActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

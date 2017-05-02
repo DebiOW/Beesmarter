@@ -11,6 +11,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.debre.beesmarterbeesgame.StartScreen.StartScreenAct;
+
 public class DeathActivity extends AppCompatActivity {
 
     Button button;
@@ -37,7 +39,7 @@ public class DeathActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
         getWindow().getDecorView().setSystemUiVisibility(mUIFlag);
-        final Intent i = new Intent(DeathActivity.this, MainActivity.class);
+        final Intent i = new Intent(DeathActivity.this, StartScreenAct.class);
         button = (Button) findViewById(R.id.button);
         textView = (TextView) findViewById(R.id.textView);
         textView2 = (TextView) findViewById(R.id.textView2);
@@ -45,20 +47,20 @@ public class DeathActivity extends AppCompatActivity {
 
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
-        int highScore = settings.getInt("HIGH_SCORE", 0);
-        if (gamePanel.score > highScore) {
-            textView2.setText(String.valueOf(gamePanel.score));
-            textView.setText(String.valueOf(gamePanel.score));
-
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("HIGH_SCORE", gamePanel.score);
-            editor.commit();
-
-        } else {
-            textView2.setText(String.valueOf(highScore));
-            textView.setText(String.valueOf(gamePanel.score));
-
-        }
+//        int highScore = settings.getInt("HIGH_SCORE", 0);
+//        if (gamePanel.score > highScore) {
+//            textView2.setText(String.valueOf(gamePanel.score));
+//            textView.setText(String.valueOf(gamePanel.score));
+//
+//            SharedPreferences.Editor editor = settings.edit();
+//            editor.putInt("HIGH_SCORE", gamePanel.score);
+//            editor.commit();
+//
+//        } else {
+//            textView2.setText(String.valueOf(highScore));
+//            textView.setText(String.valueOf(gamePanel.score));
+//
+//        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

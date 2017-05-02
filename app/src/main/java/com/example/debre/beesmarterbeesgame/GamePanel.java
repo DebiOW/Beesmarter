@@ -33,7 +33,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap frog;
     Bee meh;
     Frog beka;
-    Flower flower;
     List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();
     int r;
@@ -68,10 +67,11 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         myBmp1=Bitmap.createScaledBitmap(myBmp1,width/5,width/5,true);
         myBmp2=Bitmap.createScaledBitmap(myBmp2,width/9,width/9,true);
         controls=new Controls(myBmp1,myBmp2,myBmp3,width,height);
-        meh=new Bee(width/2,height/2,bee,width,height);
         beka = new Frog((width/2)+3, (height/2)+3, frog, width,height);
         screenHeight=height;
         screenWidth=width;
+        bee=Bitmap.createScaledBitmap(bee,width/9,height/4,true);
+        meh=new Bee(width/2,height/2,bee,width,height);
 
 
     }
@@ -118,14 +118,26 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update(){
+        if (beka.x+frog.getWidth()>map.x+myBmp.getWidth()){
+            beka.x=map.x+myBmp.getWidth()-frog.getWidth();
+        }
+        if (beka.x<map.x){
+            beka.x=map.x;
+        }
+//        if(beka.y<map.y){
+//            beka.y=map.y;
+//        }
+
+
+
         controls.update();
         if (flowers.size()<10) {
             if(rnd.nextInt(4) == 1){
-                flowers.add(flower = new Flower(rnd.nextInt(myBmp.getWidth()), rnd.nextInt(myBmp.getHeight()), flower1));
+                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower1));
             } else if(rnd.nextInt(4) == 2){
-                flowers.add(flower = new Flower(rnd.nextInt(myBmp.getWidth()), rnd.nextInt(myBmp.getHeight()), flower2));
+                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower2));
             } else {
-                flowers.add(flower = new Flower(rnd.nextInt(myBmp.getWidth()), rnd.nextInt(myBmp.getHeight()), flower3));
+                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower3));
             }
         }
         if (r==1){
@@ -140,38 +152,44 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         if(meh.x-controls.jx<screenWidth/2&&map.x==0
                 || meh.x-controls.jx>screenWidth/2&&map.x+myBmp.getWidth()==screenWidth) {
             meh.x = meh.x - controls.jx;
-            beka.x = meh.x - 300;
         }else {
             map.x += controls.jx;
+            beka.x += controls.jx;
 
             for(int i=0;i<flowers.size();i++){
                 flowers.get(i).x+=controls.jx;
             }
         }
 
+        for(int i=0;i<flowers.size();i++){
+            Flower flowerx=flowers.get(i);
+        if(meh.x + bee.getWidth() >= flowerx.x&&meh.x<= flowerx.x+flower1.getWidth()&&meh.y + bee.getHeight() >= flowerx.y&&meh.y<= flowerx.y+flower1.getHeight()) {
+            score += 1;
+            flowers.remove(i);
 
+        }
+        }
+            for(int i=0;i<flowers.size();i++) {
+                Flower flowerx = flowers.get(i);
+                if (flowerx.x>map.x+myBmp.getWidth()||flowerx.y>map.y+myBmp.getHeight()||flowerx.x+flowerx.bmp.getWidth()<map.x||flowerx.y+flowerx.bmp.getHeight()<map.y) {
+                    flowers.remove(i);
+
+
+                }
+            }
 
 
         if(meh.y-controls.jy<screenHeight/2&&map.y==0
                 ||meh.y-controls.jy>screenHeight/2&&map.y+myBmp.getHeight()==screenHeight) {
             meh.y = meh.y - controls.jy;
-            beka.y = meh.y - 300;
         }else {
             map.y += controls.jy;
+            beka.y = controls.jy;
             for(int i=0;i<flowers.size();i++){
                 flowers.get(i).y+=controls.jy;
             }
         }
 
-
-
-
-    }
-    public void collision(){
-        if(meh.x + 10 == flower.x){
-            score += 1;
-
-        }
 
 
 

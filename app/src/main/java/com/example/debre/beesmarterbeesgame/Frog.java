@@ -23,18 +23,6 @@ public class Frog {
     }
 
     public void render(Canvas canvas){
-        if (x<0){
-            x=0;
-        }
-        if (x+bmp.getWidth()>width){
-            x=width-bmp.getWidth();
-        }
-        if (y<0){
-            y=0;
-        }
-        if (y+bmp.getHeight()>height){
-            y=height-bmp.getHeight();
-        }
         canvas.drawBitmap(bmp, x, y,null);
 
 

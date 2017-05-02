@@ -47,16 +47,16 @@ public class DeathActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("HIGH_SCORE", 0);
         if (gamePanel.score > highScore) {
-            textView.setText(String.valueOf(gamePanel.score));
             textView2.setText(String.valueOf(gamePanel.score));
+            textView.setText(String.valueOf(gamePanel.score));
 
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("HIGH_SCORE", gamePanel.score);
             editor.commit();
 
         } else {
-            textView.setText(String.valueOf(highScore));
-            textView2.setText(String.valueOf(gamePanel.score));
+            textView2.setText(String.valueOf(highScore));
+            textView.setText(String.valueOf(gamePanel.score));
 
         }
 

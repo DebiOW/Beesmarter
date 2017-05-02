@@ -47,7 +47,6 @@ public class MainThread extends Thread {
 
                     this.gamePanel.update();
                     this.gamePanel.draw(canvas);
-                    mainActivity.update();
 
 
                 }

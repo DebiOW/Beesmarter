@@ -36,6 +36,7 @@ public class StartScreenAct extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(mUIFlag);
 
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
+        ImageButton button1 = (ImageButton) findViewById(R.id.imageButton3);
 
     button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {

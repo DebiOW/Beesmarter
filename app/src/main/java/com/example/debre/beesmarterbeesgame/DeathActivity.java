@@ -18,8 +18,6 @@ public class DeathActivity extends AppCompatActivity {
     Button button;
     TextView textView;
     TextView textView2;
-    int score;
-    GamePanel gamePanel;
     private DeathActivity deathActivity;
 
     @Override

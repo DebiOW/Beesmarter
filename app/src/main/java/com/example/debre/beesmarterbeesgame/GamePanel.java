@@ -41,6 +41,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Random rnd = new Random();
     int r;
     int a;
+    int speed = 0;
     int score = 1;
     public float nyX,nyY;
     public GamePanel (Context context){

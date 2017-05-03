@@ -36,7 +36,7 @@ public class Flower {
 
 
         canvas.drawBitmap(bmp,x,y,null);
-        Log.v("asd", Float.toString(x));
+
 
 
     }

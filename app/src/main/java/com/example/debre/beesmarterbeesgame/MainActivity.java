@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void intent(){
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        overridePendingTransition(0, 0);
         startActivity(i);
         finish();
 

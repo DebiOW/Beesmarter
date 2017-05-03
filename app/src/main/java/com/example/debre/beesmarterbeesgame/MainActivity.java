@@ -1,20 +1,17 @@
 package com.example.debre.beesmarterbeesgame;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
 
 public class MainActivity extends AppCompatActivity {
 
     public static MainActivity mainActivity;
     Intent i;
-    Context context;
 
     public MainActivity(){
         mainActivity=this;
@@ -49,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void intent(){
         startActivity(i);
+        finish();
     }
 
 

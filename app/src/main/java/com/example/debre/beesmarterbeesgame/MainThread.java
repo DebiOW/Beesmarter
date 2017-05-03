@@ -12,7 +12,6 @@ public class MainThread extends Thread {
     private double avgfps;
     private SurfaceHolder holder;
     private GamePanel gamePanel;
-    private MainActivity mainActivity;
     private boolean running;
     public static Canvas canvas;
 

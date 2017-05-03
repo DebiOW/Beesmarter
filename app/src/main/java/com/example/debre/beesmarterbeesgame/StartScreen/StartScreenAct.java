@@ -43,7 +43,6 @@ public class StartScreenAct extends AppCompatActivity {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     overridePendingTransition(0, 0);
                     startActivity(intent);
-                    finish();
                 }
             });
 

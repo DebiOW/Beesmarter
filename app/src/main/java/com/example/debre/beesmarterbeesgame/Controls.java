@@ -12,7 +12,7 @@ import java.util.Random;
  * Összeszegelte debre  4/30/2017-án.
  */
 
-public class Controls {
+class Controls {
     Bitmap cb1;
     Bitmap cb2;
     Bitmap stop;

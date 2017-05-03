@@ -1,7 +1,6 @@
 package com.example.debre.beesmarterbeesgame.StartScreen;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.view.WindowManager;
 
 import com.example.debre.beesmarterbeesgame.R;
 
-import static java.security.AccessController.getContext;
 
 public class LoadingScreen extends AppCompatActivity {
 

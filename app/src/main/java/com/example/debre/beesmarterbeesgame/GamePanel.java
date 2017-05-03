@@ -1,16 +1,13 @@
 package com.example.debre.beesmarterbeesgame;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.example.debre.beesmarterbeesgame.StartScreen.StartScreenAct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +19,11 @@ import java.util.Random;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     private MainThread thread;
-    private MainActivity mainActivity;
     private Map map;
+    private DeathActivity deathActivity;
     private Controls controls;
     int screenWidth, screenHeight;
     Bitmap myBmp;
-    public int death;
     public boolean dead = false;
     Bitmap myBmp1;
     Bitmap myBmp2;
@@ -98,8 +94,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void surfaceDestroyed(SurfaceHolder holder){
-        boolean retry=true;
-        while (true){
+        if (true){
             try {
                 thread.setrunning(false);
                 thread.join();
@@ -128,7 +123,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
 
-    public void update(){
+    public void update() throws InterruptedException {
         if (beka.x+frog.getWidth()>map.x+myBmp.getWidth()){
             beka.x=map.x+myBmp.getWidth()-frog.getWidth();
         }
@@ -139,11 +134,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 //            beka.y=map.y;
 //        }
 
-        if(dead == true){
+        if(dead){
             MainActivity.mainActivity.intent();
-
-
-
+            thread.setrunning(false);
+            deathActivity.score=score;
 
         }
 
@@ -214,14 +208,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
                 flowers.get(i).y+=controls.jy;
             }
         }
+
+
+
         if(meh.x + bee.getWidth() >=beka.x&& meh.x<=beka.x+frog.getWidth()&&meh.y + bee.getHeight() >= beka.y&&meh.y<= beka.y+frog.getHeight()) {
             dead = true;
 
 
         }
-
-
-
     }
     public void draw(Canvas canvas){
         super.draw(canvas);

@@ -22,12 +22,6 @@ public class Bee {
         this.height=height;
     }
 
-    public void collision(){
-
-
-
-
-    }
 
 
 

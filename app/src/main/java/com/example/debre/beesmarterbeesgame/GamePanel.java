@@ -210,6 +210,21 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         }
 
 
+        if (beka.x<map.x){
+            beka.x=map.x;
+        }
+        if (beka.y<map.y){
+            beka.y=map.y;
+        }
+        if (beka.x+beka.bmp.getWidth()>map.x+map.myBmp.getWidth()){
+            beka.x=map.x+map.myBmp.getWidth()-beka.bmp.getWidth();
+        }
+        if (beka.y+beka.bmp.getHeight()>map.y+map.myBmp.getHeight()){
+            beka.y=map.y+map.myBmp.getHeight()-beka.bmp.getHeight();
+        }
+
+
+
 
         if(meh.x + bee.getWidth() >=beka.x&& meh.x<=beka.x+frog.getWidth()&&meh.y + bee.getHeight() >= beka.y&&meh.y<= beka.y+frog.getHeight()) {
             dead = true;

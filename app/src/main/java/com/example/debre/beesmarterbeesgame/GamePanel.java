@@ -247,6 +247,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         meh.render(canvas);
         controls.draw(canvas);
         beka.render(canvas);
-
+//asd
     }
 }

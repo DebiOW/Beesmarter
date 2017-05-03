@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 
 import com.example.debre.beesmarterbeesgame.MainActivity;
 import com.example.debre.beesmarterbeesgame.R;
+import com.example.debre.beesmarterbeesgame.SettingsActivity;
 
 public class StartScreenAct extends AppCompatActivity {
 
@@ -46,6 +47,15 @@ public class StartScreenAct extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(StartScreenAct.this, SettingsActivity.class);
+                startActivity(i);
+            }
+        });
+
 
 
     }

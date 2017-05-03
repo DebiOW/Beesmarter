@@ -45,7 +45,6 @@ public class DeathActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
         textView = (TextView) findViewById(R.id.textView);
         textView2 = (TextView) findViewById(R.id.textView2);
-        textView.setTextSize(40);
 
 
 

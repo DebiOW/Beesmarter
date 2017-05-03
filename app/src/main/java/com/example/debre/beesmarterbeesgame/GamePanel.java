@@ -35,7 +35,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap frog;
     Bee meh;
     Frog beka;
-    GamePanel gamePanel;
+    public static GamePanel gamePanel;
 
     List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();
@@ -137,7 +137,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         if(dead){
             MainActivity.mainActivity.intent();
             thread.setrunning(false);
-            deathActivity.score=score;
 
         }
 
@@ -192,6 +191,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
                 Flower flowerx = flowers.get(i);
                 if (flowerx.x>map.x+myBmp.getWidth()||flowerx.y>map.y+myBmp.getHeight()||flowerx.x+flowerx.bmp.getWidth()<map.x||flowerx.y+flowerx.bmp.getHeight()<map.y) {
                     flowers.remove(i);
+                    score++;
 
 
                 }
@@ -228,6 +228,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
         if(meh.x + bee.getWidth() >=beka.x&& meh.x<=beka.x+frog.getWidth()&&meh.y + bee.getHeight() >= beka.y&&meh.y<= beka.y+frog.getHeight()) {
             dead = true;
+
+
 
 
         }

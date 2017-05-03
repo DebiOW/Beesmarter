@@ -19,11 +19,13 @@ public class DeathActivity extends AppCompatActivity {
     TextView textView;
     TextView textView2;
     int score;
-    private GamePanel gamePanel;
+    GamePanel gamePanel;
+    private DeathActivity deathActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
 
 
@@ -47,20 +49,24 @@ public class DeathActivity extends AppCompatActivity {
         textView.setTextSize(40);
 
 
+
+
          SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
        int highScore = settings.getInt("HIGH_SCORE", 0);
-       if (score > highScore) {
-         textView2.setText(String.valueOf(score));
-          textView.setText(String.valueOf(score));
+       if (GamePanel.gamePanel.score > highScore) {
+         textView2.setText(String.valueOf(GamePanel.gamePanel.score));
+          textView.setText(String.valueOf(GamePanel.gamePanel.score));
           SharedPreferences.Editor editor = settings.edit();
-          editor.putInt("HIGH_SCORE", score);
+          editor.putInt("HIGH_SCORE", GamePanel.gamePanel.score);
         editor.commit();
 //
        } else {
            textView2.setText(String.valueOf(highScore));
-            textView.setText(String.valueOf(score));
+            textView.setText(String.valueOf(GamePanel.gamePanel.score));
 //
         }
+
+
 
 
 
@@ -75,6 +81,12 @@ public class DeathActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+    }
+    public DeathActivity(){
+        deathActivity = this;
+
+
 
     }
 

@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static MainActivity mainActivity;
     Intent i;
+    GamePanel gamePanel;
+    DeathActivity deathActivity;
 
     public MainActivity(){
         mainActivity=this;
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     public void intent(){
         startActivity(i);
         finish();
+
+
     }
 
 

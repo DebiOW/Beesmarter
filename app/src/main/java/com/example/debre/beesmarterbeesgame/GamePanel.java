@@ -73,7 +73,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         myBmp1=Bitmap.createScaledBitmap(myBmp1,width/5,width/5,true);
         myBmp2=Bitmap.createScaledBitmap(myBmp2,width/9,width/9,true);
         controls=new Controls(myBmp1,myBmp2,myBmp3,width,height);
-        beka = new Frog((width/2)+3, (height/2)+3, frog, width,height);
+        beka = new Frog(5, 5, frog, width,height);
         screenHeight=height;
         screenWidth=width;
         bee=Bitmap.createScaledBitmap(bee,width/9,height/4,true);
@@ -203,7 +203,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             meh.y = meh.y - controls.jy;
         }else {
             map.y += controls.jy;
-            beka.y = controls.jy;
+            beka.y += controls.jy;
             for(int i=0;i<flowers.size();i++){
                 flowers.get(i).y+=controls.jy;
             }

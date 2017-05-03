@@ -9,12 +9,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import com.example.debre.beesmarterbeesgame.GamePanel;
 import com.example.debre.beesmarterbeesgame.MainActivity;
 import com.example.debre.beesmarterbeesgame.R;
 import com.example.debre.beesmarterbeesgame.SettingsActivity;
 
 public class StartScreenAct extends AppCompatActivity {
-
     public StartScreenAct(){
 
     }
@@ -38,6 +38,7 @@ public class StartScreenAct extends AppCompatActivity {
 
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         ImageButton button1 = (ImageButton) findViewById(R.id.imageButton3);
+
 
     button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {

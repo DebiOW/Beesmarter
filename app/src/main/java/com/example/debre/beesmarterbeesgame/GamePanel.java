@@ -35,13 +35,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap frog;
     Bee meh;
     Frog beka;
+    int jx,jy;
     public static GamePanel gamePanel;
 
     List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();
     int r;
     int a;
-    int speed = 0;
     int score = 1;
     public float nyX,nyY;
     public GamePanel (Context context){
@@ -125,6 +125,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update() throws InterruptedException {
+        jx=controls.jx/2;
+        jy=controls.jy/2;
         if (beka.x+frog.getWidth()>map.x+myBmp.getWidth()){
             beka.x=map.x+myBmp.getWidth()-frog.getWidth();
         }
@@ -162,15 +164,15 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             controls.y=-1;
         }
 
-        if(meh.x-controls.jx<screenWidth/2&&map.x==0
-                || meh.x-controls.jx>screenWidth/2&&map.x+myBmp.getWidth()==screenWidth) {
-            meh.x = meh.x - controls.jx;
+        if(meh.x-jx<screenWidth/2&&map.x==0
+                || meh.x-jx>screenWidth/2&&map.x+myBmp.getWidth()==screenWidth) {
+            meh.x = meh.x - jx;
         }else {
-            map.x += controls.jx;
-            beka.x += controls.jx;
+            map.x += jx;
+            beka.x += jx;
 
             for(int i=0;i<flowers.size();i++){
-                flowers.get(i).x+=controls.jx;
+                flowers.get(i).x+=jx;
             }
         }
 
@@ -199,14 +201,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             }
 
 
-        if(meh.y-controls.jy<screenHeight/2&&map.y==0
-                ||meh.y-controls.jy>screenHeight/2&&map.y+myBmp.getHeight()==screenHeight) {
-            meh.y = meh.y - controls.jy;
+        if(meh.y-jy<screenHeight/2&&map.y==0
+                ||meh.y-jy>screenHeight/2&&map.y+myBmp.getHeight()==screenHeight) {
+            meh.y = meh.y - jy;
         }else {
-            map.y += controls.jy;
-            beka.y += controls.jy;
+            map.y += jy;
+            beka.y += jy;
             for(int i=0;i<flowers.size();i++){
-                flowers.get(i).y+=controls.jy;
+                flowers.get(i).y+=jy;
             }
         }
 

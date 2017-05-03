@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.SeekBar;
 
+import com.example.debre.beesmarterbeesgame.StartScreen.StartScreenAct;
+
 public class SettingsActivity extends AppCompatActivity {
 
     SeekBar seekBar;
@@ -37,7 +39,6 @@ public class SettingsActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                GamePanel.gamePanel.speed = prog;
 
             }
         });

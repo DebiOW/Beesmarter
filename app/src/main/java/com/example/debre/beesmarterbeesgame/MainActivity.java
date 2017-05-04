@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity mainActivity;
     Intent i;
     GamePanel gamePanel;
+    public int speed;
     DeathActivity deathActivity;
 
     public MainActivity(){
@@ -31,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            speed = extras.getInt(("speed"));
+            //The key argument here must match that used in the other activity
+        }
         setContentView(new GamePanel(this));
 
 
@@ -42,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
         getWindow().getDecorView().setSystemUiVisibility(mUIFlag);
+
 
 
 

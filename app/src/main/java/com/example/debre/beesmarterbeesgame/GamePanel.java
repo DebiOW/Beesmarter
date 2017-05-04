@@ -22,6 +22,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     private Map map;
     private DeathActivity deathActivity;
     private Controls controls;
+    private MainActivity mainActivity;
     int screenWidth, screenHeight;
     Bitmap myBmp;
     public boolean dead = false;
@@ -43,6 +44,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     int r;
     int a;
     int score = 1;
+    public int speed;
     public float nyX,nyY;
     public GamePanel (Context context){
         super(context);
@@ -125,8 +127,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update() throws InterruptedException {
-        jx=controls.jx/2;
-        jy=controls.jy/2;
+        jx=controls.jx/5*speed;
+        jy=controls.jy/5*speed;
         if (beka.x+frog.getWidth()>map.x+myBmp.getWidth()){
             beka.x=map.x+myBmp.getWidth()-frog.getWidth();
         }

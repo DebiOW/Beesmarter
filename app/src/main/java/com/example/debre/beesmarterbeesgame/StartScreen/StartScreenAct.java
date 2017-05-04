@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.debre.beesmarterbeesgame.GamePanel;
 import com.example.debre.beesmarterbeesgame.MainActivity;
@@ -18,6 +19,7 @@ public class StartScreenAct extends AppCompatActivity {
     public StartScreenAct(){
 
     }
+    public int speed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +40,20 @@ public class StartScreenAct extends AppCompatActivity {
 
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         ImageButton button1 = (ImageButton) findViewById(R.id.imageButton3);
+        TextView textView=(TextView) findViewById(R.id.textView5);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            speed = extras.getInt(("speed"));
+            //The key argument here must match that used in the other activity
+        }
+        textView.setText(Integer.toString(speed));
 
 
     button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent= new Intent(getApplicationContext(),MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.putExtra("speed",speed);
                     overridePendingTransition(0, 0);
                     startActivity(intent);
                 }

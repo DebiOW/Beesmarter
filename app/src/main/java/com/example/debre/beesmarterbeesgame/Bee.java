@@ -2,6 +2,7 @@ package com.example.debre.beesmarterbeesgame;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.media.MediaPlayer;
 
 /**
  * Created by ptmi on 5/1/17.
@@ -11,15 +12,19 @@ public class Bee {
     public float x = 50,y = 50;
     Bitmap bmp;
     int width, height;
+    public static Bee bee;
+
 
 
 
     public Bee(float x, float y, Bitmap bmp, int width, int height){
+        bee = this;
         this.bmp=bmp;
         this.x = x;
         this.y = y;
         this.width=width;
         this.height=height;
+
     }
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.media.MediaPlayer;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -36,9 +37,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap flower3;
     Bitmap frog;
     Bee meh;
-    Frog beka;
+    private Frog beka;
+    int bx,by;
     int jx,jy;
+    int tick = 0;
     public static GamePanel gamePanel;
+
 
     List<Flower> flowers=new ArrayList<>();
     Random rnd = new Random();
@@ -127,6 +131,9 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update() throws InterruptedException {
+        beka.newX = meh.x;
+        beka.newY = meh.y;
+        tick++;
         jx=controls.jx/5* StartScreenAct.startScreenAct.prog;
         jy=controls.jy/5* StartScreenAct.startScreenAct.prog;
         if (beka.x+frog.getWidth()>map.x+myBmp.getWidth()){
@@ -143,7 +150,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             MainActivity.mainActivity.intent();
             thread.setrunning(false);
 
+
         }
+        if(tick % 45 == 0){
+            beka.jump();
+
+        }
+
+
 
 
 

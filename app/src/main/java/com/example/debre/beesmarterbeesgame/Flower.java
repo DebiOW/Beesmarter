@@ -12,15 +12,13 @@ import java.util.Random;
 
 public class Flower {
     float x ,y;
-    public int rx,ry;
     Bitmap bmp;
+    public int rx, ry;
 
 
-    public Flower(float x, float y,int rx,int ry,Bitmap bmp){
+    public Flower(float x, float y,Bitmap bmp){
         this.x = x;
         this.y = y;
-        this.rx=rx;
-        this.ry=ry;
         this.bmp=bmp;
 
     }

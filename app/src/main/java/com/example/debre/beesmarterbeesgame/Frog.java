@@ -11,6 +11,7 @@ public class Frog {
     public float x = 40,y = 40;
     Bitmap bmp;
     int width, height;
+    int rx,ry;
 
     public Frog(float x, float y, Bitmap bmp, int width, int height){
         this.bmp=bmp;

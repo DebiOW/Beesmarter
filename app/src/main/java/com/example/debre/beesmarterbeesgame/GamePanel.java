@@ -127,8 +127,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update() throws InterruptedException {
-        jx=controls.jx/5* StartScreenAct.startScreenAct.prog;
-        jy=controls.jy/5* StartScreenAct.startScreenAct.prog;
         if (beka.x+frog.getWidth()>map.x+myBmp.getWidth()){
             beka.x=map.x+myBmp.getWidth()-frog.getWidth();
         }
@@ -149,12 +147,14 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
         controls.update();
         if (flowers.size()<10) {
+            int ax=rnd.nextInt(map.x+myBmp.getWidth());
+            int ay=map.y+rnd.nextInt(myBmp.getHeight());
             if(rnd.nextInt(4) == 1){
-                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower1));
+                flowers.add(new Flower(ax, ay,ax-map.x,ay-map.y, flower1));
             } else if(rnd.nextInt(4) == 2){
-                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower2));
+                flowers.add(new Flower(ax, ay,ax-map.x,ay-map.y, flower2));
             } else {
-                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower3));
+                flowers.add(new Flower(ax, ay,ax-map.x,ay-map.y, flower3));
             }
         }
         if (r==1){
@@ -171,11 +171,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             meh.x = meh.x - jx;
         }else {
             map.x += jx;
-            beka.x += jx;
-
-            for(int i=0;i<flowers.size();i++){
-                flowers.get(i).x+=jx;
-            }
         }
 
         for(int i=0;i<flowers.size();i++){
@@ -208,10 +203,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             meh.y = meh.y - jy;
         }else {
             map.y += jy;
-            beka.y += jy;
-            for(int i=0;i<flowers.size();i++){
-                flowers.get(i).y+=jy;
-            }
         }
 
 
@@ -226,6 +217,17 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         }
         if (beka.y+beka.bmp.getHeight()>map.y+map.myBmp.getHeight()){
             beka.y=map.y+map.myBmp.getHeight()-beka.bmp.getHeight();
+        }
+        jx=controls.jx/5* StartScreenAct.startScreenAct.prog;
+        jy=controls.jy/5* StartScreenAct.startScreenAct.prog;
+        beka.x = map.x+beka.rx;
+        beka.y = map.y+beka.ry;
+        for(int i=0;i<flowers.size();i++){
+            flowers.get(i).y=map.y+flowers.get(i).ry;
+        }
+
+        for(int i=0;i<flowers.size();i++){
+            flowers.get(i).x=map.x+flowers.get(i).rx;
         }
 
 

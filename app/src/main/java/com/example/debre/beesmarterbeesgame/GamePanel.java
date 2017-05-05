@@ -9,6 +9,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 
+import com.example.debre.beesmarterbeesgame.StartScreen.StartScreenAct;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -125,8 +127,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
     public void update() throws InterruptedException {
-        jx=controls.jx/2;
-        jy=controls.jy/2;
+        jx=controls.jx/5* StartScreenAct.startScreenAct.prog;
+        jy=controls.jy/5* StartScreenAct.startScreenAct.prog;
         if (beka.x+frog.getWidth()>map.x+myBmp.getWidth()){
             beka.x=map.x+myBmp.getWidth()-frog.getWidth();
         }

@@ -14,8 +14,19 @@ import com.example.debre.beesmarterbeesgame.MainActivity;
 import com.example.debre.beesmarterbeesgame.R;
 import com.example.debre.beesmarterbeesgame.SettingsActivity;
 
+import java.util.Set;
+
 public class StartScreenAct extends AppCompatActivity {
+
+    SettingsActivity settingsActivity;
+    public static StartScreenAct startScreenAct;
+    public int prog=1;
+
+
     public StartScreenAct(){
+        startScreenAct = this;
+
+
 
     }
     @Override

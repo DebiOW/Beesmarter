@@ -163,12 +163,15 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
         controls.update();
         if (flowers.size()<10) {
+            int vx,vy;
+            vx=rnd.nextInt(map.x+myBmp.getWidth());
+            vy=map.y+rnd.nextInt(myBmp.getHeight());
             if(rnd.nextInt(4) == 1){
-                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower1));
+                flowers.add(new Flower(vx,vy,vx-map.x,vy-map.y, flower1));
             } else if(rnd.nextInt(4) == 2){
-                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower2));
+                flowers.add(new Flower(vx,vy,vx-map.x,vy-map.y, flower2));
             } else {
-                flowers.add(new Flower(rnd.nextInt(map.x+myBmp.getWidth()), map.y+rnd.nextInt(myBmp.getHeight()), flower3));
+                flowers.add(new Flower(vx,vy,vx-map.x,vy-map.y, flower3));
             }
         }
         if (r==1){
@@ -186,10 +189,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         }else {
             map.x += jx;
             beka.x += jx;
-
-            for(int i=0;i<flowers.size();i++){
-                flowers.get(i).x+=jx;
-            }
         }
 
         for(int i=0;i<flowers.size();i++){
@@ -223,9 +222,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         }else {
             map.y += jy;
             beka.y += jy;
-            for(int i=0;i<flowers.size();i++){
-                flowers.get(i).y+=jy;
-            }
         }
 
 
@@ -251,6 +247,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
 
 
+        }
+        for(int i=0;i<flowers.size();i++){
+            flowers.get(i).x=map.x+flowers.get(i).rx;
+            flowers.get(i).y=map.y+flowers.get(i).ry;
         }
     }
     public void draw(Canvas canvas){

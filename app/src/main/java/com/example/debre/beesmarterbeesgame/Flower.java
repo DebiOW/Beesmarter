@@ -16,7 +16,9 @@ public class Flower {
     public int rx, ry;
 
 
-    public Flower(float x, float y,Bitmap bmp){
+    public Flower(float x, float y,int rx,int ry,Bitmap bmp){
+        this.rx=rx;
+        this.ry=ry;
         this.x = x;
         this.y = y;
         this.bmp=bmp;

@@ -7,7 +7,7 @@ import android.util.Log;
 import java.util.Random;
 
 /**
- * Created by ptmi on 5/1/17.
+ * Created by debre on 5/1/17.
  */
 
 public class Flower {

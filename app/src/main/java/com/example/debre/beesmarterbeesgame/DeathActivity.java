@@ -40,8 +40,6 @@ public class DeathActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
         getWindow().getDecorView().setSystemUiVisibility(mUIFlag);
-        final Intent i = new Intent(DeathActivity.this, StartScreenAct.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         button = (Button) findViewById(R.id.button);
         textView = (TextView) findViewById(R.id.textView);
         textView2 = (TextView) findViewById(R.id.textView2);
@@ -75,6 +73,8 @@ public class DeathActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(DeathActivity.this, StartScreenAct.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 overridePendingTransition(0, 0);
                 startActivity(i);
                 finish();

@@ -14,6 +14,8 @@ public class Frog {
     int width, height;
     public static Frog frog;
     float newX, newY, dx, dy;
+    public int vel=50;
+    public int a=1;
     int dir = 0;
 
 
@@ -43,33 +45,37 @@ public class Frog {
 
 
     public void jump(){
-        if(newX - x > 0){
-           if(newX - x <= height/2 && newY - y <= height/2){
-              dx = newX;
-              dy = newY;
+        x+=vel*a;
 
 
-    } else {
-        dx = newX - height/3;
-        dy = newY - height/3;
 
-    }
-} else {
-    if(newX - x <= -(height/2) && newY - y <= -(height/2)){
-        dx = -newX;
-        dy = -newY;
-
-
-    } else {
-        dx = newX + height / 3;
-        dy = newY + height / 3;
-    }
-
-}
-
-
-        x = dx;
-        y = dy;
+//        if(newX - x > 0){
+//           if(newX - x <= height/2 && newY - y <= height/2){
+//              dx = newX;
+//              dy = newY;
+//
+//
+//    } else {
+//        dx = newX - height/3;
+//        dy = newY - height/3;
+//
+//    }
+//} else {
+//    if(newX - x <= -(height/2) && newY - y <= -(height/2)){
+//        dx = -newX;
+//        dy = -newY;
+//
+//
+//    } else {
+//        dx = newX + height / 3;
+//        dy = newY + height / 3;
+//    }
+//
+//}
+//
+//
+//        x = dx;
+//        y = dy;
 
 
 

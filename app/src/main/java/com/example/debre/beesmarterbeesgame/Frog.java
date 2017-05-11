@@ -45,8 +45,12 @@ public class Frog {
 
 
     public void jump(){
-        x+=vel*a;
-
+        if(dir==0) {
+            x += vel * a;
+        }
+        if(dir==1) {
+            y += vel * a;
+        }
 
 
 //        if(newX - x > 0){

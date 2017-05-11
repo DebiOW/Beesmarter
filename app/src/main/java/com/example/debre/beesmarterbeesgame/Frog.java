@@ -14,7 +14,8 @@ public class Frog {
     int width, height;
     public static Frog frog;
     float newX, newY, dx, dy;
-    public int vel=50;
+    public int vel;
+    public int velm;
     public int a=1;
     int dir = 0;
 
@@ -27,7 +28,8 @@ public class Frog {
         this.y = y;
         this.width=width;
         this.height=height;
-
+        vel=width/50;
+        velm=vel;
 
     }
 
@@ -46,9 +48,15 @@ public class Frog {
 
     public void jump(){
         if(dir==0) {
-            x += vel * a;
+            x -= vel * a;
         }
         if(dir==1) {
+            x += vel * a;
+        }
+        if(dir==2) {
+            y -= vel * a;
+        }
+        if(dir==3) {
             y += vel * a;
         }
 

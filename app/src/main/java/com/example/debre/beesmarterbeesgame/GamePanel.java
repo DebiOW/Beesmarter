@@ -153,29 +153,32 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
 
         }
         if(tick ==30){
-            if (meh.x-beka.x>meh.y-beka.y) {
-                if (meh.x - beka.x < 0) {
-                    beka.vel = -5;
-                } else {
-                    beka.vel = 5;
+                if(beka.x-meh.x>beka.y-meh.y&&beka.x-meh.x>0||beka.x-meh.x<beka.y-meh.y&&beka.x-meh.x<0) {
+                    if (meh.x < beka.x) {
+                        beka.dir = 0;
+                    } else if (meh.x > beka.x) {
+                        beka.dir = 1;
+                    }
+
                 }
-                beka.dir=0;
-            }
 
 
-            if (meh.x-beka.x<meh.y-beka.y) {
+
+            if(beka.x-meh.x<beka.y-meh.y&&beka.x-meh.x>0||beka.x-meh.x>beka.y-meh.y&&beka.x-meh.x<0) {
                 if (meh.y - beka.y < 0) {
-                    beka.vel = -5;
-                } else {
-                    beka.vel = 5;
+                    beka.dir=2;
                 }
-                beka.dir=1;
+                if(meh.y>beka.y){
+                    beka.dir=3;
+                }
             }
-
 
 
         }
-
+        if (tick>30&&tick<45){
+            a+=1;
+            beka.jump();
+        }
         if (tick>45&&tick<60){
             a-=1;
             beka.jump();

@@ -1,11 +1,13 @@
 package com.example.debre.beesmarterbeesgame;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 
 import com.example.debre.beesmarterbeesgame.StartScreen.StartScreenAct;
@@ -14,6 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     SeekBar seekBar;
     GamePanel gamePanel;
+    ImageButton imageButton4;
     int prog = 0;
     public static SettingsActivity settingsActivity;
 
@@ -45,6 +48,15 @@ public class SettingsActivity extends AppCompatActivity {
 
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.setMax(10);
+        imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
+
+        imageButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 

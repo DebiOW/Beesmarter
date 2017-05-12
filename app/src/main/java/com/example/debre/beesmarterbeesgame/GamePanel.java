@@ -37,6 +37,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
     Bitmap flower3;
     Bitmap frog;
     Bitmap frog2;
+    Bitmap frog3;
+    Bitmap frog4;
     Bee meh;
     private Frog beka;
     int bx,by;
@@ -64,9 +66,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
         bee = BitmapFactory.decodeResource(context.getResources(),R.drawable.bee);
         frog = BitmapFactory.decodeResource(context.getResources(),R.drawable.frog);
         frog2 = BitmapFactory.decodeResource(context.getResources(),R.drawable.frog2);
+        frog3 = BitmapFactory.decodeResource(context.getResources(),R.drawable.frog3);
+        frog4 = BitmapFactory.decodeResource(context.getResources(),R.drawable.frog4);
        flower1 = BitmapFactory.decodeResource(context.getResources(),R.drawable.flower1);
       flower2 = BitmapFactory.decodeResource(context.getResources(),R.drawable.flower2);
         flower3= BitmapFactory.decodeResource(context.getResources(),R.drawable.flower3);
+
 
 
 
@@ -156,8 +161,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
                 if(beka.x-meh.x>beka.y-meh.y&&beka.x-meh.x>0||beka.x-meh.x<beka.y-meh.y&&beka.x-meh.x<0) {
                     if (meh.x < beka.x) {
                         beka.dir = 0;
+                        beka.bmp = frog2;
                     } else if (meh.x > beka.x) {
                         beka.dir = 1;
+                        beka.bmp = frog;
                     }
 
                 }
@@ -167,27 +174,29 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback{
             if(beka.x-meh.x<beka.y-meh.y&&beka.x-meh.x>0||beka.x-meh.x>beka.y-meh.y&&beka.x-meh.x<0) {
                 if (meh.y - beka.y < 0) {
                     beka.dir=2;
+                    beka.bmp = frog4;
                 }
                 if(meh.y>beka.y){
                     beka.dir=3;
+                    beka.bmp = frog3;
                 }
             }
 
 
         }
         if (tick>30&&tick<45){
-            a+=1;
+            a*=6;
             beka.jump();
         }
         if (tick>45&&tick<60){
-            a-=1;
+            a/=6;
             beka.jump();
         }
         if(tick ==60){
 
             tick=0;
             beka.a=1;
-            beka.vel=5;
+            beka.vel=beka.velm;
 
         }
 

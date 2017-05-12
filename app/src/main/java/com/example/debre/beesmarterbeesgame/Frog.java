@@ -28,18 +28,13 @@ public class Frog {
         this.y = y;
         this.width=width;
         this.height=height;
-        vel=width/50;
+        vel=width/70;
         velm=vel;
 
     }
 
     public void render(Canvas canvas){
-        if(newX - x < x){
-            canvas.drawBitmap(bmp2, x, y,null);
-        } else {
-            canvas.drawBitmap(bmp, x, y,null);
-        }
-
+        canvas.drawBitmap(bmp, x, y,null);
 
 
 

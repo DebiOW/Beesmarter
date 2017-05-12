@@ -309,15 +309,22 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         Paint paint=new Paint();
+        Paint paint2 = new Paint();
+        paint2.setColor(Color.RED);
         paint.setColor(Color.BLACK);
+        paint2.setTextSize(100);
+        paint.setTextSize(102);
         map.draw(canvas);
-        canvas.drawText("Score: "+score,10,10,paint);
         for (int i = 0; i < flowers.size(); i++) {
             flowers.get(i).render(canvas);
         }
         meh.render(canvas);
-        controls.draw(canvas);
         beka.render(canvas);
+        controls.draw(canvas);
+        canvas.drawText("Score: "+score,110,110,paint);
+        canvas.drawText("Score: "+score,110,110,paint2);
+
+
 
     }
 }

@@ -62,8 +62,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        GamePanel.gamePanel.song.pause();
+    }
 
-
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        GamePanel.gamePanel.song.start();
+    }
 }

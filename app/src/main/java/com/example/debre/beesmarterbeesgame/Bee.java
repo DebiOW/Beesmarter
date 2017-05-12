@@ -8,7 +8,7 @@ import android.media.MediaPlayer;
  * Created by ptmi on 5/1/17.
  */
 
-public class Bee {
+public class Bee/*Smarter*/ { // pluszpont helye: _________
     public float x = 50,y = 50;
     Bitmap bmp;
     int width, height;

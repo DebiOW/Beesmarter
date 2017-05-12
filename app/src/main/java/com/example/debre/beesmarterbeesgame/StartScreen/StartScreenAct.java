@@ -22,6 +22,7 @@ public class StartScreenAct extends AppCompatActivity {
     SettingsActivity settingsActivity;
     public static StartScreenAct startScreenAct;
     public int prog=1;
+    public int vol = 50;
 
 
     public StartScreenAct(){
@@ -51,13 +52,13 @@ public class StartScreenAct extends AppCompatActivity {
 
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         ImageButton button1 = (ImageButton) findViewById(R.id.imageButton3);
-        TextView textView=(TextView) findViewById(R.id.textView5);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             speed = extras.getInt(("speed"));
             //The key argument here must match that used in the other activity
         }
-        textView.setText(Integer.toString(speed));
+
 
 
     button.setOnClickListener(new View.OnClickListener() {

@@ -15,9 +15,11 @@ import com.example.debre.beesmarterbeesgame.StartScreen.StartScreenAct;
 public class SettingsActivity extends AppCompatActivity {
 
     SeekBar seekBar;
+    SeekBar seekBar2;
     GamePanel gamePanel;
     ImageButton imageButton4;
     int prog = 0;
+    int vol  = 0;
     public static SettingsActivity settingsActivity;
 
 
@@ -47,7 +49,9 @@ public class SettingsActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(mUIFlag);
 
         seekBar = (SeekBar) findViewById(R.id.seekBar);
+        seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
         seekBar.setMax(10);
+        seekBar.setMax(49);
         imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
 
         imageButton4.setOnClickListener(new View.OnClickListener() {
@@ -59,9 +63,23 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
+        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                vol = progress;
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
+            }
 
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                StartScreenAct.startScreenAct.vol = vol;
+
+            }
+        });
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

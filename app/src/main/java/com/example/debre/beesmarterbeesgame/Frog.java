@@ -42,6 +42,7 @@ public class Frog {
 
 
     public void jump(){
+        GamePanel.gamePanel.jump.start();
         if(dir==0) {
             x -= vel * a;
         }

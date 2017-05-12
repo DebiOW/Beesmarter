@@ -95,6 +95,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         screenHeight = height;
         screenWidth = width;
         bee = Bitmap.createScaledBitmap(bee, width / 9, height / 4, true);
+        bee2 = Bitmap.createScaledBitmap(bee2, width / 9, height / 4, true);
         meh = new Bee(width / 2, height / 2, bee, width, height);
 
 

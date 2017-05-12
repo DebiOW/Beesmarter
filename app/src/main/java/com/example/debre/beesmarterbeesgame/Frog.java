@@ -28,7 +28,7 @@ public class Frog {
         this.y = y;
         this.width=width;
         this.height=height;
-        vel=width/70;
+        vel=width/50;
         velm=vel;
 
     }

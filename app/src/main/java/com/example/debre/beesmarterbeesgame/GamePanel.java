@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -306,8 +308,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     public void draw(Canvas canvas) {
         super.draw(canvas);
+        Paint paint=new Paint();
+        paint.setColor(Color.BLACK);
         map.draw(canvas);
-
+        canvas.drawText("Score: "+score,10,10,paint);
         for (int i = 0; i < flowers.size(); i++) {
             flowers.get(i).render(canvas);
         }
